@@ -1,0 +1,110 @@
+@use '../abstracts' as *;
+
+.header {
+  margin-block: 6.9rem 13.2rem;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    text-decoration: none;
+  }
+
+  .mobile-nav-toggler {
+    border: none;
+    outline: none;
+    height: 22px;
+    width: 25px;
+    background-image: url('images/icon-hamburger.svg');
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    display: none;
+  }
+
+  .primary-nav {
+    transition: transform 1s ease-in-out;
+
+    &__items {
+      display: flex;
+      gap: 3.2rem;
+    }
+
+    &__link,
+    &__link:visited {
+      text-decoration: none;
+      font-size: var(--fs-nav);
+      line-height: var(--lh-nav);
+      letter-spacing: var(--ls-nav);
+      color: hsl(var(--clr-primary-400));
+    }
+
+    &__link:active,
+    &__link:hover,
+    &__link:focus {
+      color: hsla(var(--clr-primary-400), 0.5);
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    margin-block: 4.8rem;
+
+    .primary-nav {
+      position: absolute;
+      inset: 10rem 2.4rem auto;
+      max-width: 45rem;
+      margin: auto;
+      padding-block: 4rem;
+      background: hsl(var(--clr-neutral-100));
+      border-radius: 0.4rem;
+      box-shadow: 0px 10px 20px 0px rgba(80, 86, 98, 0.03);
+      transform: translateY(calc(-100% - 10rem));
+      transition: transform 0.8s ease-in-out;
+
+      &__link {
+        font-weight: var(--fw-bold);
+      }
+
+      &__items {
+        flex-direction: column;
+        gap: 2.4rem;
+        text-align: center;
+      }
+    }
+
+    .mobile-nav-toggler {
+      display: block;
+
+      &[aria-expanded='true'] {
+        background-image: url('images/icon-close.svg');
+      }
+
+      &[aria-expanded='true'] + .primary-nav {
+        transform: translateY(0);
+      }
+    }
+
+    .cta {
+      display: none;
+    }
+  }
+}
+
+body[data-overlay] {
+  .header {
+    position: relative;
+  }
+
+  @include pseudo($location: before, $position: fixed) {
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0.33%,
+      rgba(0, 0, 0, 0.6) 99.79%
+    );
+  }
+}

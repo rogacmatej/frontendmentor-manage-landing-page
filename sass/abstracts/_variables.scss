@@ -1,0 +1,68 @@
+$grid-breakpoints: (
+  xs: 23.4375em,
+  sm: 36em,
+  md: 48em,
+  lg: 62em,
+  xl: 75em,
+  xxl: 87.5em,
+);
+
+:root {
+  --clr-accent-100: 13, 100%, 96%;
+  --clr-accent-200: 12, 88%, 59%;
+  --clr-accent-400: 12, 91%, 72%;
+
+  --clr-primary-400: 228, 38%, 23%;
+
+  --clr-neutral-100: 0, 100%, 100%;
+  --clr-neutral-200: 228, 13%, 13%;
+  --clr-neutral-900: 0, 0%, 0%;
+
+  --ff-body: 'Be Vietnam', system-ui, sans-serif;
+  --ff-heading: 'Be Vietnam', system-ui, sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+
+  --fs-heading1: 5.6rem;
+  --lh-heading1: 6.4rem;
+  --ls-heading1: -0.1rem;
+
+  --fs-heading2: 4rem;
+  --lh-heading2: 4.4rem;
+  --ls-heading2: -0.0714rem;
+
+  --fs-heading3: 1.6rem;
+  --lh-heading3: normal;
+  --ls-heading3: -0.0286rem;
+
+  --fs-nav: 1.3rem;
+  --lh-nav: normal;
+  --ls-nav: normal;
+
+  --fs-body: 1.6rem;
+  --lh-body: 2.6rem;
+  --ls-body: normal;
+
+  --fw-btn: var(--fw-bold);
+  --fs-btn: 1.3rem;
+  --lh-btn: normal;
+  --ls-btn: normal;
+
+  --btn-primary-text: hsl(var(--clr-neutral-100));
+  --btn-primary-bg: hsl(var(--clr-accent-200));
+  --btn-primary-border: hsl(var(--clr-accent-200));
+  --btn-primary-accent-text: var(--btn-primary-text);
+  --btn-primary-accent-bg: hsl(var(--clr-accent-400));
+  --btn-primary-accent-border: hsl(var(--clr-accent-400));
+
+  --btn-secondary-text: hsl(var(--clr-accent-400));
+  --btn-secondary-bg: hsl(var(--clr-neutral-100));
+  --btn-secondary-border: hsl(var(--clr-neutral-100));
+  --btn-secondary-accent-text: hsl(var(--clr-accent-200));
+  --btn-secondary-accent-bg: hsl(var(--clr-neutral-100));
+  --btn-secondary-accent-border: hsl(var(--clr-neutral-100));
+}

@@ -1,0 +1,184 @@
+@use '../abstracts' as *;
+
+.hero-section {
+  .hero__text {
+    p {
+      max-width: 32ch;
+    }
+  }
+
+  .hero__image::before {
+    content: ' ';
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    width: 38%;
+    max-height: 110vh;
+    aspect-ratio: 1 / 1.1;
+    background-image: url('images/bg-tablet-pattern.svg');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+  }
+}
+
+.about-section {
+  margin-top: 13.2rem;
+  position: relative;
+
+  @include pseudo($content: url('images/bg-tablet-pattern.svg')) {
+    zoom: 80%;
+    z-index: -1;
+    left: -500px;
+    bottom: -120%;
+    width: 100px;
+  }
+
+  .what-is-different {
+    max-width: 40ch;
+  }
+
+  .numbered-items {
+    counter-reset: count;
+
+    .numbered-item {
+      --flow-spacer: 1em;
+      counter-increment: count;
+
+      &__content {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        column-gap: 1.5rem;
+        align-items: center;
+
+        @include pseudo(
+          $content: counter(count, decimal-leading-zero),
+          $position: relative
+        ) {
+          background-color: hsl(var(--clr-accent-200));
+          color: hsl(var(--clr-neutral-100));
+          font-weight: bold;
+          padding: 0.6rem 2.3rem;
+          border-radius: 3.9rem;
+          grid-row: 1 / 2;
+          grid-column: 1 / 2;
+        }
+
+        h3 {
+          line-height: 1;
+        }
+
+        p {
+          grid-column: 2 / -1;
+        }
+      }
+    }
+  }
+}
+
+.carousel-section {
+  padding-block: 14.6rem 18rem;
+  text-align: center;
+}
+
+.cta-section {
+  padding-block: 6.2rem;
+  background-image: url('images/bg-simplify-section-desktop.svg');
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+
+  .cta {
+    align-self: center;
+    justify-self: end;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .hero-section {
+    text-align: center;
+
+    .hero__image {
+      order: -1;
+
+      &::before {
+        width: 87%;
+        max-height: 90vh;
+        aspect-ratio: 1 / 1.2;
+      }
+    }
+
+    .hero__text {
+      p {
+        margin-inline: auto;
+      }
+    }
+  }
+
+  .about-section {
+    margin-top: 9.3rem;
+
+    @include pseudo($content: url('images/bg-tablet-pattern.svg')) {
+      zoom: 40%;
+      left: 70%;
+      bottom: 100%;
+      width: 100px;
+    }
+
+    .what-is-different {
+      text-align: center;
+      margin-inline: auto;
+      margin-bottom: 5.4rem;
+
+      p {
+        margin-inline: auto;
+      }
+    }
+    .numbered-items {
+      .numbered-item {
+        &__content {
+          @include pseudo($location: after, $position: static) {
+            display: block;
+            z-index: -1;
+            border-radius: 3.9rem;
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+            width: 100%;
+            height: 40px;
+            background: hsl(var(--clr-accent-100));
+            box-shadow: 5em 0 0 hsl(var(--clr-accent-100));
+          }
+
+          h3 {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+          }
+
+          p {
+            grid-column: 1 / -1;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel-section {
+    padding-block: 6.2rem 4.2rem;
+    text-align: center;
+  }
+
+  .cta-section {
+    padding-block: 9.1rem;
+    text-align: center;
+
+    .heading-secondary {
+      font-weight: 700;
+      line-height: 5rem;
+      letter-spacing: -0.1rem;
+    }
+
+    .cta {
+      justify-self: center;
+    }
+  }
+}

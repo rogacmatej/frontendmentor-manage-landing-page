@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap');
+
+@include media-breakpoint-down(lg) {
+  :root {
+    --fs-heading1: 4rem;
+    --lh-heading1: 5rem;
+
+    --fs-heading2: 3rem;
+    --lh-heading2: 4.5rem;
+    --ls-heading2: -0.0619rem;
+
+    --fs-nav: 1.6rem;
+    --ls-nav: -0.0286rem;
+
+    --fs-body: 1.4rem;
+    --lh-body: 2.8rem;
+  }
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: hsla(var(--clr-primary-400), 0.5025);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-bold);
+}
+
+p + p {
+  margin-bottom: 1.5rem;
+}
+
+.heading-primary {
+  font-size: var(--fs-heading1);
+  line-height: var(--lh-heading1);
+  letter-spacing: var(--ls-heading1);
+}
+
+.heading-secondary {
+  font-size: var(--fs-heading2);
+  line-height: var(--lh-heading2);
+  letter-spacing: var(--ls-heading2);
+}
+
+.heading-tertiary {
+  font-size: var(--fs-heading3);
+  line-height: var(--ls-heading3);
+  letter-spacing: var(--ls-heading3);
+}

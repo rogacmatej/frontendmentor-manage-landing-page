@@ -1,0 +1,160 @@
+@use '../abstracts' as *;
+
+.footer {
+  --logo-color: #fff;
+  padding-block: 6.5rem 6.2rem;
+}
+
+.footer-wrapper {
+  display: grid;
+  grid-template-areas:
+    'logo navigation form'
+    'socials navigation copyright';
+  justify-content: space-between;
+}
+
+.footer-wrapper > :nth-child(1) {
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-wrapper > :nth-child(2) {
+  grid-area: socials;
+}
+
+.footer-wrapper > :nth-child(3) {
+  grid-area: navigation;
+  display: grid;
+}
+
+.footer-wrapper > :nth-child(4) {
+  grid-area: form;
+}
+
+.footer-wrapper > :nth-child(5) {
+  grid-area: copyright;
+  align-self: end;
+  justify-self: end;
+}
+
+.footer-nav {
+  columns: 2;
+
+  &__list-item:not(:last-child) {
+    margin-bottom: 1.3rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: hsl(var(--clr-neutral-100));
+  }
+
+  &__link:hover,
+  &__link:hover,
+  &__link:focus {
+    color: hsl(var(--clr-accent-200));
+  }
+}
+
+.social-list {
+  display: flex;
+  gap: 2rem;
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: #fff;
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: hsl(var(--clr-accent-200));
+  }
+}
+
+.copyright {
+  font-size: 1.3rem;
+  color: hsl(var(--clr-neutral-100));
+}
+
+.signup-form {
+  display: flex;
+  gap: 0.8rem;
+
+  input {
+    font-size: 1.3rem;
+    letter-spacing: -0.01rem;
+    border-radius: 100vmax;
+    min-width: 20rem;
+    padding: 1.1rem 1.6rem 1.3rem 1.6rem;
+    outline: none;
+    border: 1px solid transparent;
+    line-height: normal;
+
+    &::placeholder {
+      color: #8d8d8d;
+    }
+
+    &[aria-invalid='true'] {
+      border: 1px solid #f33c3c;
+    }
+
+    &[aria-invalid='true']::placeholder {
+      color: #f33c3c;
+    }
+  }
+
+  button[type='submit'] {
+    align-self: self-start;
+  }
+
+  .error-message {
+    display: block;
+    margin-left: 2rem;
+    color: #f33c3c;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.0077rem;
+    margin-top: 0.4rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .footer {
+    padding-block: 5.1rem 3rem;
+  }
+
+  .footer-wrapper {
+    grid-template-areas:
+      'form'
+      'navigation'
+      'logo'
+      'socials'
+      'copyright';
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  .footer-wrapper > * {
+    margin-inline: auto;
+  }
+
+  .social-list {
+    gap: 3.4rem;
+
+    &__icon {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+}

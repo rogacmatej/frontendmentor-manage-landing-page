@@ -1,0 +1,36 @@
+@use 'variables' as variables;
+
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key(variables.$grid-breakpoints, $breakpoint) {
+    $size: map-get(variables.$grid-breakpoints, $breakpoint);
+
+    @media only screen and (min-width: $size) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key(variables.$grid-breakpoints, $breakpoint) {
+    $size: map-get(variables.$grid-breakpoints, $breakpoint);
+
+    @media only screen and (max-width: $size) {
+      @content;
+    }
+  }
+}
+
+@mixin pseudo(
+  $location: before,
+  $content: '',
+  $position: absolute,
+  $parentPosition: relative
+) {
+  position: $parentPosition;
+
+  &::#{$location} {
+    content: $content;
+    position: $position;
+    @content;
+  }
+}
