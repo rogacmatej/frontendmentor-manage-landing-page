@@ -16,7 +16,7 @@
     width: 38%;
     max-height: 110vh;
     aspect-ratio: 1 / 1.1;
-    background-image: url('../../public/images/bg-tablet-pattern.svg');
+    background-image: url('../public/images/bg-tablet-pattern.svg');
     background-repeat: no-repeat;
     background-position: bottom left;
   }
@@ -26,7 +26,7 @@
   margin-top: 13.2rem;
   position: relative;
 
-  @include pseudo($content: url('../../public/images/bg-tablet-pattern.svg')) {
+  @include pseudo($content: url('../public/images/bg-tablet-pattern.svg')) {
     zoom: 80%;
     z-index: -1;
     left: -500px;
@@ -80,7 +80,7 @@
 
 .cta-section {
   padding-block: 6.2rem;
-  background-image: url('../../public/images/bg-simplify-section-desktop.svg');
+  background-image: url('../public/images/bg-simplify-section-desktop.svg');
   background-size: cover;
   background-position: left bottom;
   background-repeat: no-repeat;
@@ -115,7 +115,7 @@
   .about-section {
     margin-top: 9.3rem;
 
-    @include pseudo($content: url('../../public/images/bg-tablet-pattern.svg')) {
+    @include pseudo($content: url('../public/images/bg-tablet-pattern.svg')) {
       zoom: 40%;
       left: 70%;
       bottom: 100%;
