@@ -21,5 +21,8 @@
   },
   "dependencies": {
     "a11y-slider": "^0.4.22"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-arm64-musl": "^4.9.1"
   }
 }
